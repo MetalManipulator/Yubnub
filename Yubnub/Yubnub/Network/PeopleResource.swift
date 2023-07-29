@@ -6,17 +6,12 @@
 //
 
 struct PeopleResource: APIResource {
-    typealias ModelType = Person
-    var id: Int?
-    var pageNumber: String?
+    typealias ModelType = PeopleWrapper
+    var pageNumber: Int?
     var searchString: String?
 
     var methodPath: String {
-        guard let id = id else {
-            return "/people"
-        }
-
-        return "/people/\(id)"
+        return "/people"
     }
 
     var page: String? {
@@ -24,7 +19,7 @@ struct PeopleResource: APIResource {
             return nil
         }
 
-        return pageNumber
+        return "\(pageNumber)"
     }
 
     var search: String? {

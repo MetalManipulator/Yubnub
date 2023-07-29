@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct YubnubApp: App {
+    var listViewModel = ListView.ViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ListView(viewModel: listViewModel)
         }
     }
 }
