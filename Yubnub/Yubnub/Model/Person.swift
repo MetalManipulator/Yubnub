@@ -22,6 +22,23 @@ struct Person {
     let vehicles: [String]
     let starships: [String]
     let url: String
+
+    static func empty() -> Self {
+        return Person(name: "Test Name",
+                      height: "test height",
+                      mass: "test mass",
+                      hairColor: "test hair",
+                      skinColor: "test skin",
+                      eyeColor: "test eye",
+                      birthYear: "test year",
+                      gender: "test gender",
+                      homeworld: "test homeworld",
+                      films: ["test films"],
+                      species: ["test species"],
+                      vehicles: ["test vehicles"],
+                      starships: ["test starships"],
+                      url: "test url")
+    }
 }
 
 extension Person: Decodable {
@@ -47,6 +64,14 @@ struct PeopleWrapper: Decodable {
     let next: String?
     let previous: String?
     let results: [Person]
+
+    var nextPage: Int? {
+        if let components = next?.components(separatedBy: "/") {
+            let trimmed = components.dropLast(1)
+            return Int(trimmed.last ?? "nil") ?? nil
+        }
+        return nil
+    }
 }
 
 struct TestData {

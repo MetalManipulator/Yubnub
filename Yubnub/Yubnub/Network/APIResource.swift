@@ -16,7 +16,7 @@ protocol APIResource {
 
 extension APIResource {
     var url: URL {
-        var components = URLComponents(string: "https://swapi.dev/api")
+        var components = URLComponents(string: "https://swapi.dev")
         components?.path = methodPath
         if let page = page {
             components?.queryItems?.append(URLQueryItem(name: "pageSize", value: page))

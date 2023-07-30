@@ -11,32 +11,55 @@ struct ListView: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        VStack {
-            Text("List")
-
-            if viewModel.isLoading {
-                ProgressView()
-            } else {
-                List(viewModel.people) { person in
-                    //            NavigationLink(destination: DetailView(person: person)) {
-                    listRow(person: person)
-                    //            }
+        NavigationStack {
+            ScrollView {
+                LazyVStack(alignment: .leading) {
+                    let people = viewModel.people.compactMap { $0 }
+                    ForEach(people) { person in
+                        NavigationLink(destination: DetailView(person: person)) {
+                            listRow(person: person)
+                        }
+                        Divider()
+                    }
                 }
+//                if viewModel.nextPage != nil {
+                    loadingRow
+//                }
             }
-        }
-        .navigationTitle("SWAPI")
-        .onAppear {
-//            viewModel.fetchPeople(forPage: 1)
+            .navigationTitle("SWAPI People")
         }
     }
 
     func listRow(person: Person) -> some View {
-        return VStack(alignment: .leading) {
-            Text(person.name)
-            HStack {
-                Text("h: \(person.height)cm")
-                Text("m: \(person.mass)kg")
+        return HStack {
+            VStack(alignment: .leading, spacing: 8.0) {
+                Text(person.name)
+                    .foregroundColor(.black)
+                    .font(.title3)
+                HStack(spacing: 16.0) {
+                    HStack(spacing: 4.0) {
+                        Image(systemName: "arrow.up.to.line")
+                        Text("\(person.height)cm")
+                    }
+                    HStack(spacing: 4.0) {
+                        Image(systemName: "scalemass")
+                        Text("\(person.mass)kg")
+                    }
+                }
             }
+            Spacer()
+            Image(systemName: "chevron.right")
+        }
+        .padding(.horizontal)
+    }
+
+    var loadingRow: some View {
+        VStack {
+            Text("Loading more results")
+            ProgressView()
+        }
+        .onAppear {
+            viewModel.fetchNextPeoplePage()
         }
     }
 }

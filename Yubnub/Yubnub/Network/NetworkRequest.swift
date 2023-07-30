@@ -15,18 +15,21 @@ protocol NetworkRequest: AnyObject {
 
 extension NetworkRequest {
     func load(_ url: URL, withCompletion completion: @escaping (ModelType?) -> Void) {
-        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, _) -> Void in
+        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) -> Void in
             guard
                 let data = data,
                 let value = self?.decode(data) else
             {
                 DispatchQueue.main.async {
+                    print("NetworkRequest dataTask response: \(response?.description)")
+                    print("NetworkRequest dataTask error: \(error)")
                     completion(nil) // Convert any errors to nil at this point. Better error handling to come.
                 }
                 return
             }
             // Send decoded value to completion
             DispatchQueue.main.async {
+                print("NetworkRequest success response: \(response?.description)")
                 completion(value)
             }
         }

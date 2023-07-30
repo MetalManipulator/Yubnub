@@ -10,7 +10,7 @@ struct PersonResource: APIResource {
     var id: Int
 
     var methodPath: String {
-        return "/people/\(id)"
+        return "/api/people/\(id)"
     }
     var page: String? {
         return nil
