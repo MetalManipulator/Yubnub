@@ -19,6 +19,10 @@ final class NetworkTests: XCTestCase {
     }
 
     func testBuildQuery() throws {
+        let peopleResource = PeopleResource()
+        let peopleURL = peopleResource.url
+        XCTAssertEqual(peopleURL.absoluteString, "https://swapi.dev/api/people/")
+
         let pageResource = PeopleResource(pageNumber: 2)
         let pageURL = pageResource.url
         XCTAssertEqual(pageURL.absoluteString, "https://swapi.dev/api/people/?page=2")
