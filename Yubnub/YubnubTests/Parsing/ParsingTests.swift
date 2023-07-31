@@ -19,7 +19,12 @@ final class ParsingTests: XCTestCase {
     }
 
     func testOpenPeople() throws {
-        let people = TestData.People
-        XCTAssertNotNil(people)
+        let peopleWrapper = TestData.People
+        XCTAssertNotNil(peopleWrapper)
+    }
+
+    func testPeopleWrapperNextPage() {
+        let peopleWrapper = TestData.People
+        XCTAssertEqual(peopleWrapper?.nextPage, 2)
     }
 }

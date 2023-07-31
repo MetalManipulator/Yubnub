@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// An individual `Person` entry per the API schema
 struct Person {
     let name: String
     let height: String
@@ -52,6 +53,7 @@ extension Person: Decodable {
 }
 
 extension Person: Identifiable {
+    /// id is determined by the url where it was found at (e.g. https://swapi.dev/api/people/1/ would be "1")
     var id: Int {
         let components = url.components(separatedBy: "/")
         let trimmed = components.dropLast(1)
@@ -59,6 +61,7 @@ extension Person: Identifiable {
     }
 }
 
+/// A wrapper when requesting multiple `Person`s that also includes pagination data
 struct PeopleWrapper: Decodable {
     let count: Int
     let next: String?
@@ -66,22 +69,17 @@ struct PeopleWrapper: Decodable {
     let results: [Person]
 
     var nextPage: Int? {
-        if let components = next?.components(separatedBy: "/") {
-            let trimmed = components.dropLast(1)
-            return Int(trimmed.last ?? "nil") ?? nil
-        }
-        return nil
+        guard let next = next else { return nil }
+        let components = URLComponents(string: next)
+        let queryItems = components?.queryItems
+        let query = queryItems?.first(where: { $0.name == "page" })
+        return Int(query?.value ?? "")
     }
 }
 
 struct TestData {
-//    static var Person: Person = {
-//        let url = Bundle.main.url(forResource: "Person", withExtension: "json")!
-//        let data = try! Data(contentsOf: url)
-//        let decoded = try! JSONDecoder().decode(Person.self, from: data)
-//        return decoded
-//    }()
-
+    /// A page of People data loaded in from local file.
+    /// Need to drill into `results` in order to find the array of `Person`s.
     static var People: PeopleWrapper? = {
         guard let url = Bundle.main.url(forResource: "People", withExtension: "json") else {
             print("Failed find local JSON")

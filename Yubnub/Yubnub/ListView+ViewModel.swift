@@ -21,8 +21,8 @@ extension ListView {
             self.request = nil
         }
 
+        /// Will request to fetch the next page of People
         func fetchNextPeoplePage() {
-            print("fetchNextPeoplePage: \(nextPage)")
             if let nextPage = nextPage {
                 fetchPeople(forPage: nextPage)
             } else {
@@ -30,7 +30,9 @@ extension ListView {
             }
         }
 
-        func fetchPeople(forPage page: Int) {
+        /// Fetches the desired page of People from the API
+        /// - Parameter page: The page number to fetch
+        fileprivate func fetchPeople(forPage page: Int) {
             guard !isLoading else { return }
             isLoading = true
 
@@ -46,10 +48,12 @@ extension ListView {
                     return
                 }
 
+                // Initialize the Person array with empty objects to allow insertions
                 if self?.people.isEmpty ?? true {
                     self?.people = .init(repeating: nil, count: 100)
                 }
 
+                // Add found people into the Person array
                 for person in results {
                     self?.people[person.id] = person
                 }

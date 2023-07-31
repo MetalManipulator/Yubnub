@@ -11,23 +11,26 @@ struct DetailView: View {
     var person: Person
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Group {
-                Text("Name: \(person.name)")
-                Text("Height: \(person.height)cm")
-                Text("Mass: \(person.mass)kg")
-                Text("Hair Color: \(person.hairColor)")
-                Text("Skin Color: \(person.skinColor)")
-                Text("Eye Color: \(person.eyeColor)")
-                Text("Birth Year: \(person.birthYear)")
-            }
-            Group {
+        ScrollView {
+            VStack(alignment: .leading) {
+                Image(systemName: "person") // SWAPI doesn't provide images, maybe fetch from another source?
+                    .font(.system(size: 160))
+
+                HStack(spacing: 4.0) {
+                    Text("Height: \(person.height)")
+                    Text("cm")
+                        .foregroundColor(.accentColor)
+                }
+                HStack(spacing: 4.0) {
+                    Text("Mass: \(person.mass)")
+                    Text("kg")
+                        .foregroundColor(.accentColor)
+                }
+                Text("Hair color: \(person.hairColor)")
+                Text("Skin color: \(person.skinColor)")
+                Text("Eye color: \(person.eyeColor)")
+                Text("Birth year: \(person.birthYear)")
                 Text("Gender: \(person.gender)")
-//                Text("Homeworld: \(person.homeworld)")
-//                Text("Films: \(person.films)")
-//                Text("Species: \(person.species)")
-//                Text("Vehicles: \(person.vehicles)")
-//                Text("Starships: \(person.starships)")
             }
         }
         .navigationTitle(person.name)

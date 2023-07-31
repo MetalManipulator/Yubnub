@@ -16,16 +16,18 @@ protocol APIResource {
 
 extension APIResource {
     var url: URL {
-        var components = URLComponents(string: "https://swapi.dev")
-        components?.path = methodPath
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "swapi.dev"
+        components.path = methodPath
         if let page = page {
-            components?.queryItems?.append(URLQueryItem(name: "pageSize", value: page))
+            components.queryItems = [URLQueryItem(name: "page", value: page)]
         }
         if let search = search {
-            components?.queryItems?.append(URLQueryItem(name: "search", value: search))
+            components.queryItems = [URLQueryItem(name: "search", value: search)]
         }
 
-        guard let url = components?.url else {
+        guard let url = components.url else {
             print("Dev error: could not create url for APIResource")
             return URL(string: "error")!
         }

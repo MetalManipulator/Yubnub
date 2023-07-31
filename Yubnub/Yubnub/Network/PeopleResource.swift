@@ -11,7 +11,7 @@ struct PeopleResource: APIResource {
     var searchString: String?
 
     var methodPath: String {
-        return "/api/people"
+        return "/api/people/"
     }
 
     var page: String? {

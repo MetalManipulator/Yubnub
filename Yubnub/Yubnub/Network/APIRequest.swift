@@ -16,6 +16,9 @@ class APIRequest<Resource: APIResource> {
 }
 
 extension APIRequest: NetworkRequest {
+    /// Decodes the provided data into the ModelType of the resource
+    /// - Parameter data: `Data` to decode into known type
+    /// - Returns: Optional ModelType if successfully decoded
     func decode(_ data: Data) -> Resource.ModelType? {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
@@ -23,6 +26,7 @@ extension APIRequest: NetworkRequest {
         return decoded
     }
 
+    /// Executes the `Resource`'s url request and provides a completion for the result
     func execute(withCompletion completion: @escaping (Resource.ModelType?) -> Void) {
         load(resource.url, withCompletion: completion)
     }

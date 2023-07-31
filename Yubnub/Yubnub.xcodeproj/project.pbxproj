@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26062D642A774BF000D9176E /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26062D632A774BF000D9176E /* NetworkTests.swift */; };
 		265643E62A70C99F00E22059 /* YubnubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265643E52A70C99F00E22059 /* YubnubApp.swift */; };
 		265643E82A70C99F00E22059 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265643E72A70C99F00E22059 /* ListView.swift */; };
 		265643EA2A70C9A400E22059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 265643E92A70C9A400E22059 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26062D632A774BF000D9176E /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		265643E22A70C99F00E22059 /* Yubnub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yubnub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		265643E52A70C99F00E22059 /* YubnubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YubnubApp.swift; sourceTree = "<group>"; };
 		265643E72A70C99F00E22059 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26062D652A774CB200D9176E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				26062D632A774BF000D9176E /* NetworkTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		265643D92A70C99E00E22059 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +149,7 @@
 		265643F52A70C9A400E22059 /* YubnubTests */ = {
 			isa = PBXGroup;
 			children = (
+				26062D652A774CB200D9176E /* Networking */,
 				268DF5C72A756B500077291B /* Parsing */,
 				265643F62A70C9A400E22059 /* YubnubTests.swift */,
 			);
@@ -356,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26062D642A774BF000D9176E /* NetworkTests.swift in Sources */,
 				268DF5C92A756B800077291B /* ParsingTests.swift in Sources */,
 				265643F72A70C9A400E22059 /* YubnubTests.swift in Sources */,
 			);
