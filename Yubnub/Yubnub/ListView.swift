@@ -27,7 +27,7 @@ struct ListView: View {
             .navigationTitle("SWAPI People")
         }
         .onAppear {
-//            viewModel.fetchNextPeoplePage()
+            viewModel.fetchNextPeoplePage() // Comment out for previews to work
         }
     }
 
