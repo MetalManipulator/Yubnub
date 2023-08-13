@@ -44,18 +44,14 @@ struct ListView: View {
                     HStack(spacing: 4.0) {
                         Image(systemName: "arrow.up.to.line")
                             .font(.footnote)
-                        Text(person.height)
+                        Text("\(person.height) cm")
                             .foregroundColor(.primary)
-                        Text("cm")
-                            .font(.callout)
                     }
                     HStack(spacing: 4.0) {
                         Image(systemName: "scalemass")
                             .font(.footnote)
-                        Text(person.mass)
+                        Text("\(person.mass) kg")
                             .foregroundColor(.primary)
-                        Text("kg")
-                            .font(.callout)
                     }
                 }
             }

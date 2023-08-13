@@ -12,28 +12,34 @@ struct DetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .center, spacing: 8.0) {
                 Image(systemName: "person") // SWAPI doesn't provide images, maybe fetch from another source?
                     .font(.system(size: 160))
+                    .padding()
 
-                HStack(spacing: 4.0) {
-                    Text("Height: \(person.height)")
-                    Text("cm")
-                        .foregroundColor(.accentColor)
-                }
-                HStack(spacing: 4.0) {
-                    Text("Mass: \(person.mass)")
-                    Text("kg")
-                        .foregroundColor(.accentColor)
-                }
-                Text("Hair color: \(person.hairColor)")
-                Text("Skin color: \(person.skinColor)")
-                Text("Eye color: \(person.eyeColor)")
-                Text("Birth year: \(person.birthYear)")
-                Text("Gender: \(person.gender)")
+                detailRow(label: "Height", value: person.height, units: "cm")
+                detailRow(label: "Mass", value: person.mass, units: "kg")
+                detailRow(label: "Hair color", value: person.hairColor)
+                detailRow(label: "Skin color", value: person.skinColor)
+                detailRow(label: "Eye color", value: person.eyeColor)
+                detailRow(label: "Birth year", value: person.birthYear)
+                detailRow(label: "Gender", value: person.gender)
             }
+            .padding(.horizontal)
         }
         .navigationTitle(person.name)
+    }
+
+    private func detailRow(label: String, value: String, units: String? = nil) -> some View {
+        return HStack {
+            Text(label)
+            Spacer()
+            if let units = units {
+                Text(value + " " + units)
+            } else {
+                Text(value)
+            }
+        }
     }
 }
 
