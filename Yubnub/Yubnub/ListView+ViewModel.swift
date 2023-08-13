@@ -9,16 +9,16 @@ import Foundation
 
 extension ListView {
     final public class ViewModel: ObservableObject {
-        @Published private(set) var people: [Person?]
+        @Published private(set) var people: [Person?] = []
         @Published private(set) var isLoading = false
         @Published private(set) var nextPage: Int? = 1
 
         private var request: APIRequest<PeopleResource>?
+        private var session: URLSession
 
-        init(people: [Person] = []) {
-            self.people = people
-            self.isLoading = false
+        init(session: URLSession = URLSession.shared) {
             self.request = nil
+            self.session = session
         }
 
         /// Will request to fetch the next page of People
@@ -39,7 +39,8 @@ extension ListView {
             let resource = PeopleResource(pageNumber: page)
             let request = APIRequest(resource: resource)
             self.request = request
-            request.execute { [weak self] response in
+
+            request.execute(using: session) { [weak self] response in
                 self?.isLoading = false
                 self?.nextPage = response?.nextPage
 

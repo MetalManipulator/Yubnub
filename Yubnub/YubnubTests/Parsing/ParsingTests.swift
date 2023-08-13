@@ -24,7 +24,7 @@ final class ParsingTests: XCTestCase {
         // Test simple mapping of keys to types
         XCTAssertEqual(peopleWrapper?.count, 82)
         XCTAssertEqual(peopleWrapper?.next, "https://swapi.dev/api/people/?page=2")
-        XCTAssertEqual(peopleWrapper?.previous, nil)
+        XCTAssertNil(peopleWrapper?.previous)
 
         XCTAssertEqual(peopleWrapper?.results[0].name, "Luke Skywalker")
         XCTAssertEqual(peopleWrapper?.results[0].height, "172")

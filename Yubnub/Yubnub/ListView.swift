@@ -27,7 +27,7 @@ struct ListView: View {
             .navigationTitle("SWAPI People")
         }
         .onAppear {
-            viewModel.fetchNextPeoplePage() // Comment out for previews to work
+            viewModel.fetchNextPeoplePage()
         }
     }
 
@@ -86,9 +86,9 @@ struct ListView: View {
 }
 
 struct ListView_Previews: PreviewProvider {
-    static var viewModel = ListView.ViewModel(people: TestData.People?.results ?? [])
+    static var session = URLSessionMock(type: .success).session
 
     static var previews: some View {
-        ListView(viewModel: viewModel)
+        ListView(viewModel: ListView.ViewModel(session: session))
     }
 }

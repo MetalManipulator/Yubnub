@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "FC2EE88C-D2C1-43D1-81E1-63A7AB38EDCB",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Yubnub.xcodeproj",
+      "identifier" : "265643E12A70C99F00E22059",
+      "name" : "Yubnub"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Yubnub.xcodeproj",
+        "identifier" : "265643F12A70C9A400E22059",
+        "name" : "YubnubTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Yubnub.xcodeproj",
+        "identifier" : "265643FB2A70C9A400E22059",
+        "name" : "YubnubUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

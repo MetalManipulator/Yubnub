@@ -27,7 +27,11 @@ extension APIRequest: NetworkRequest {
     }
 
     /// Executes the `Resource`'s url request and provides a completion for the result
-    func execute(withCompletion completion: @escaping (Resource.ModelType?) -> Void) {
-        load(resource.url, withCompletion: completion)
+    /// - Parameters:
+    ///    - session: The desired URLSession to run the task on. Defaults to `.shared`
+    ///    - completion: The closure to be called with the results of the request
+    func execute(using session: URLSession = URLSession.shared,
+                 withCompletion completion: @escaping (Resource.ModelType?) -> Void) {
+        load(resource.url, using: session, withCompletion: completion)
     }
 }

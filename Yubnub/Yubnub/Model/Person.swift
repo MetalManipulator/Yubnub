@@ -23,23 +23,6 @@ struct Person {
     let vehicles: [String]
     let starships: [String]
     let url: String
-
-    static func empty() -> Self {
-        return Person(name: "Test Name",
-                      height: "test height",
-                      mass: "test mass",
-                      hairColor: "test hair",
-                      skinColor: "test skin",
-                      eyeColor: "test eye",
-                      birthYear: "test year",
-                      gender: "test gender",
-                      homeworld: "test homeworld",
-                      films: ["test films"],
-                      species: ["test species"],
-                      vehicles: ["test vehicles"],
-                      starships: ["test starships"],
-                      url: "test url")
-    }
 }
 
 extension Person: Decodable {
@@ -75,24 +58,4 @@ struct PeopleWrapper: Decodable {
         let query = queryItems?.first(where: { $0.name == "page" })
         return Int(query?.value ?? "")
     }
-}
-
-struct TestData {
-    /// A page of People data loaded in from local file.
-    /// Need to drill into `results` in order to find the array of `Person`s.
-    static var People: PeopleWrapper? = {
-        guard let url = Bundle.main.url(forResource: "People", withExtension: "json") else {
-            print("Failed find local JSON")
-            return nil
-        }
-
-        do {
-            let data = try Data(contentsOf: url)
-            let decoded = try JSONDecoder().decode(PeopleWrapper.self, from: data)
-            return decoded
-        } catch {
-            print(error)
-        }
-        return nil
-    }()
 }
