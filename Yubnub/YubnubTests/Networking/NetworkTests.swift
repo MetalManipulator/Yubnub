@@ -31,4 +31,19 @@ final class NetworkTests: XCTestCase {
         let searchURL = searchResource.url
         XCTAssertEqual(searchURL.absoluteString, "https://swapi.dev/api/people/?search=R2D2")
     }
+
+    func testPeopleRequest() throws {
+        let successSession = URLSessionMock(type: .success).session
+        let failureSession = URLSessionMock(type: .failNotFound).session
+
+        let resource = PeopleResource(pageNumber: 1)
+        let request = APIRequest(resource: resource)
+
+        request.execute(using: successSession) { response in
+            XCTAssertEqual(response?.count, 82)
+        }
+        request.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+        }
+    }
 }
