@@ -46,4 +46,19 @@ final class NetworkTests: XCTestCase {
             XCTAssertNil(response)
         }
     }
+
+    func testPersonRequest() throws {
+        let successSession = URLSessionMock(type: .success).session
+        let failureSession = URLSessionMock(type: .failNotFound).session
+
+        let resource = PersonResource(id: 1)
+        let request = APIRequest(resource: resource)
+
+        request.execute(using: successSession) { response in
+            XCTAssertEqual(response?.name, "Luke Skywalker")
+        }
+        request.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+        }
+    }
 }

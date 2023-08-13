@@ -13,7 +13,10 @@ class URLSessionMock {
         case failNotFound
     }
     private var successfulURLs: [URL?: Data] = {
-        [URL(string: "https://swapi.dev/api/people/?page=1"): TestData.PeopleRawData]
+        [
+            URL(string: "https://swapi.dev/api/people/?page=1"): TestData.PeopleRawData,
+            URL(string: "https://swapi.dev/api/people/1/"): TestData.PersonRawData
+        ]
     }()
 
     private var failureURLs: [URL?: Data] = {

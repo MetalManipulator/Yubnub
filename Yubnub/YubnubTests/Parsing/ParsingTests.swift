@@ -25,19 +25,54 @@ final class ParsingTests: XCTestCase {
         XCTAssertEqual(peopleWrapper?.count, 82)
         XCTAssertEqual(peopleWrapper?.next, "https://swapi.dev/api/people/?page=2")
         XCTAssertNil(peopleWrapper?.previous)
-
-        XCTAssertEqual(peopleWrapper?.results[0].name, "Luke Skywalker")
-        XCTAssertEqual(peopleWrapper?.results[0].height, "172")
-        XCTAssertEqual(peopleWrapper?.results[0].mass, "77")
-        XCTAssertEqual(peopleWrapper?.results[0].hairColor, "blond")
-        XCTAssertEqual(peopleWrapper?.results[0].skinColor, "fair")
-        XCTAssertEqual(peopleWrapper?.results[0].eyeColor, "blue")
-        XCTAssertEqual(peopleWrapper?.results[0].birthYear, "19BBY")
-        XCTAssertEqual(peopleWrapper?.results[0].gender, "male")
-        XCTAssertEqual(peopleWrapper?.results[0].url, "https://swapi.dev/api/people/1/")
+        XCTAssertEqual(peopleWrapper?.results.count, 10)
 
         // Test computed vars
         XCTAssertEqual(peopleWrapper?.nextPage, 2)
-        XCTAssertEqual(peopleWrapper?.results[0].id, 1)
+    }
+
+    func testOpenPerson() throws {
+        let person = TestData.Person
+
+        // Test simple mapping of keys to types
+        XCTAssertEqual(person.name, "Luke Skywalker")
+        XCTAssertEqual(person.height, "172")
+        XCTAssertEqual(person.mass, "77")
+        XCTAssertEqual(person.hairColor, "blond")
+        XCTAssertEqual(person.skinColor, "fair")
+        XCTAssertEqual(person.eyeColor, "blue")
+        XCTAssertEqual(person.birthYear, "19BBY")
+        XCTAssertEqual(person.gender, "male")
+        XCTAssertEqual(person.homeworld, "https://swapi.dev/api/planets/1/")
+        XCTAssertEqual(person.films, ["https://swapi.dev/api/films/1/",
+                                      "https://swapi.dev/api/films/2/",
+                                      "https://swapi.dev/api/films/3/",
+                                      "https://swapi.dev/api/films/6/"])
+        XCTAssertEqual(person.species, [])
+        XCTAssertEqual(person.vehicles, ["https://swapi.dev/api/vehicles/14/",
+                                         "https://swapi.dev/api/vehicles/30/"])
+        XCTAssertEqual(person.starships, ["https://swapi.dev/api/starships/12/",
+                                          "https://swapi.dev/api/starships/22/"])
+        XCTAssertEqual(person.url, "https://swapi.dev/api/people/1/")
+
+        // Test computed vars
+        XCTAssertEqual(person.id, 1)
+
+        let emptyPerson = TestData.Person.empty()
+
+        XCTAssertEqual(emptyPerson.name, "Test name")
+        XCTAssertEqual(emptyPerson.height, "test height")
+        XCTAssertEqual(emptyPerson.mass, "test mass")
+        XCTAssertEqual(emptyPerson.hairColor, "test hairColor")
+        XCTAssertEqual(emptyPerson.skinColor, "test skinColor")
+        XCTAssertEqual(emptyPerson.eyeColor, "test eyeColor")
+        XCTAssertEqual(emptyPerson.birthYear, "test birthYear")
+        XCTAssertEqual(emptyPerson.gender, "test gender")
+        XCTAssertEqual(emptyPerson.homeworld, "test homeworld")
+        XCTAssertEqual(emptyPerson.films, ["test films"])
+        XCTAssertEqual(emptyPerson.species, ["test species"])
+        XCTAssertEqual(emptyPerson.vehicles, ["test vehicles"])
+        XCTAssertEqual(emptyPerson.starships, ["test starships"])
+        XCTAssertEqual(emptyPerson.url, "test url")
     }
 }

@@ -36,6 +36,27 @@ struct TestData {
         return nil
     }()
 
+    /// A page of Peole data loaded in from local file in `Data` format.
+    static var PersonRawData: Data = {
+        guard let url = Bundle.main.url(forResource: "Person", withExtension: "json") else {
+            print("Failed find local JSON")
+            return Data()
+        }
+
+        do {
+            let data = try Data(contentsOf: url)
+            return data
+        } catch {
+            print(error)
+        }
+        return Data()
+    }()
+
+    /// A single Person instance from local file.
+    static var Person: Person = {
+        People?.results[0] ?? Person.empty()
+    }()
+
     /// The "not found" response when requesting an out of bounds resource from the API
     static var NotFound: Data = {
         guard let url = Bundle.main.url(forResource: "NotFound", withExtension: "json") else {

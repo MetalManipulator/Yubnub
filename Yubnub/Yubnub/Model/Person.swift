@@ -24,14 +24,14 @@ struct Person {
     let starships: [String]
     let url: String
 
-    static func empty() -> Self {
-        return Person(name: "Test Name",
+    func empty() -> Self {
+        return Person(name: "Test name",
                       height: "test height",
                       mass: "test mass",
-                      hairColor: "test hair",
-                      skinColor: "test skin",
-                      eyeColor: "test eye",
-                      birthYear: "test year",
+                      hairColor: "test hairColor",
+                      skinColor: "test skinColor",
+                      eyeColor: "test eyeColor",
+                      birthYear: "test birthYear",
                       gender: "test gender",
                       homeworld: "test homeworld",
                       films: ["test films"],

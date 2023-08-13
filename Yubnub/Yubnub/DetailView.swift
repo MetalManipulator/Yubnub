@@ -38,7 +38,7 @@ struct DetailView: View {
 }
 
 struct DetailView_Previews: PreviewProvider {
-    static var testPerson = TestData.People?.results[0] ?? Person.empty()
+    static var testPerson = TestData.Person
 
     static var previews: some View {
         DetailView(person: testPerson)
