@@ -29,7 +29,7 @@ struct Species {
     /// The average lifespan of this species in years.
     let averageLifespan: String
     /// The URL of a planet resource, a planet that this species originates from.
-    let homeworld: String
+    let homeworld: String?
     /// The language commonly spoken by this species.
     let language: String
     /// An array of People URL Resources that are a part of this species.

@@ -12,7 +12,7 @@ struct Film {
     /// The title of this film
     let title: String
     /// The episode number of this film.
-    let episodeID: String
+    let episodeID: Int
     /// The opening paragraphs at the beginning of this film.
     let openingCrawl: String
     /// The name of the director of this film.
@@ -36,7 +36,7 @@ struct Film {
 
     func empty() -> Self {
         return Film(title: "test title",
-                    episodeID: "test episodeID",
+                    episodeID: 99,
                     openingCrawl: "test openingCrawl",
                     director: "test director",
                     producer: "test producer",
@@ -61,7 +61,7 @@ extension Film: Decodable {
 
 extension Film: Identifiable {
     var id: Int {
-        return Int(episodeID) ?? -1
+        return episodeID
     }
 }
 
