@@ -1,16 +1,16 @@
 //
-//  PersonResource.swift
+//  VehicleResource.swift
 //  Yubnub
 //
-//  Created by Levi Gustin on 7/27/23.
+//  Created by Levi Gustin on 8/13/23.
 //
 
-struct PersonResource: APIResource {
-    typealias ModelType = Person
+struct VehicleResource: APIResource {
+    typealias ModelType = Vehicle
     var id: Int
 
     var methodPath: String {
-        return "/people/\(id)/"
+        return "/api/vehicles/\(id)/"
     }
 
     var page: String? {
