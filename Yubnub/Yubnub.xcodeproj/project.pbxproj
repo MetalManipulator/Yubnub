@@ -18,6 +18,7 @@
 		2620B2832A8C6B8C00AC5B26 /* StarshipsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E014B2A89DB6700980B21 /* StarshipsResource.swift */; };
 		2620B2842A8C6B8E00AC5B26 /* VehicleResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E01412A89DA7D00980B21 /* VehicleResource.swift */; };
 		2620B2852A8C6B9100AC5B26 /* VehiclesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E014E2A89DB9200980B21 /* VehiclesResource.swift */; };
+		2620B2872A8C854500AC5B26 /* ListView+ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B2862A8C854500AC5B26 /* ListView+ViewModelTests.swift */; };
 		262E01032A89BD2600980B21 /* Films.json in Resources */ = {isa = PBXBuildFile; fileRef = 262E01022A89BD2600980B21 /* Films.json */; };
 		262E01042A89BD2600980B21 /* Films.json in Resources */ = {isa = PBXBuildFile; fileRef = 262E01022A89BD2600980B21 /* Films.json */; };
 		262E01062A89BD3F00980B21 /* Film.json in Resources */ = {isa = PBXBuildFile; fileRef = 262E01052A89BD3F00980B21 /* Film.json */; };
@@ -142,6 +143,7 @@
 
 /* Begin PBXFileReference section */
 		26062D632A774BF000D9176E /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		2620B2862A8C854500AC5B26 /* ListView+ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListView+ViewModelTests.swift"; sourceTree = "<group>"; };
 		262E01022A89BD2600980B21 /* Films.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Films.json; sourceTree = "<group>"; };
 		262E01052A89BD3F00980B21 /* Film.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Film.json; sourceTree = "<group>"; };
 		262E01082A89BD4700980B21 /* Planets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Planets.json; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			children = (
 				26062D652A774CB200D9176E /* Networking */,
 				268DF5C72A756B500077291B /* Parsing */,
+				2620B2862A8C854500AC5B26 /* ListView+ViewModelTests.swift */,
 			);
 			path = YubnubTests;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				2682C54E2A88680500B20A60 /* APIRequest.swift in Sources */,
 				262E01342A89D95500980B21 /* FilmsResource.swift in Sources */,
 				268DF5C92A756B800077291B /* ParsingTests.swift in Sources */,
+				2620B2872A8C854500AC5B26 /* ListView+ViewModelTests.swift in Sources */,
 				262E01282A89C9E200980B21 /* Species.swift in Sources */,
 				262E01402A89DA5800980B21 /* StarshipResource.swift in Sources */,
 			);
