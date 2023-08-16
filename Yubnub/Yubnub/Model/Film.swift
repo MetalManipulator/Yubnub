@@ -59,9 +59,13 @@ extension Film: Decodable {
     }
 }
 
+extension Film: Hashable { }
 extension Film: Identifiable {
+    /// id is determined by the url where it was found at (e.g. https://swapi.dev/api/people/1/ would be "1")
     var id: Int {
-        return episodeID
+        let components = url.components(separatedBy: "/")
+        let trimmed = components.dropLast(1)
+        return Int(trimmed.last ?? "nil") ?? -1
     }
 }
 

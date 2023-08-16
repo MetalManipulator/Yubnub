@@ -16,7 +16,8 @@ struct ListView: View {
                 LazyVStack(alignment: .leading) {
                     let people = viewModel.people.compactMap { $0 }
                     ForEach(people) { person in
-                        NavigationLink(destination: DetailView(person: person)) {
+                        NavigationLink(destination: DetailView(viewModel: viewModel,
+                                                               person: person)) {
                             listRow(person: person)
                         }
                         Divider()

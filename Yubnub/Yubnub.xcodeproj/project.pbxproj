@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		26062D642A774BF000D9176E /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26062D632A774BF000D9176E /* NetworkTests.swift */; };
+		2620B27C2A8C6B7200AC5B26 /* FilmResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E01352A89D99A00980B21 /* FilmResource.swift */; };
+		2620B27D2A8C6B7400AC5B26 /* FilmsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E01322A89D95500980B21 /* FilmsResource.swift */; };
+		2620B27E2A8C6B7C00AC5B26 /* PlanetResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E01382A89D9E300980B21 /* PlanetResource.swift */; };
+		2620B27F2A8C6B7F00AC5B26 /* PlanetsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E01452A89DB0600980B21 /* PlanetsResource.swift */; };
+		2620B2802A8C6B8200AC5B26 /* SingleSpeciesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E013B2A89DA2A00980B21 /* SingleSpeciesResource.swift */; };
+		2620B2812A8C6B8500AC5B26 /* SpeciesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E01482A89DB3B00980B21 /* SpeciesResource.swift */; };
+		2620B2822A8C6B8900AC5B26 /* StarshipResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E013E2A89DA5800980B21 /* StarshipResource.swift */; };
+		2620B2832A8C6B8C00AC5B26 /* StarshipsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E014B2A89DB6700980B21 /* StarshipsResource.swift */; };
+		2620B2842A8C6B8E00AC5B26 /* VehicleResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E01412A89DA7D00980B21 /* VehicleResource.swift */; };
+		2620B2852A8C6B9100AC5B26 /* VehiclesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262E014E2A89DB9200980B21 /* VehiclesResource.swift */; };
 		262E01032A89BD2600980B21 /* Films.json in Resources */ = {isa = PBXBuildFile; fileRef = 262E01022A89BD2600980B21 /* Films.json */; };
 		262E01042A89BD2600980B21 /* Films.json in Resources */ = {isa = PBXBuildFile; fileRef = 262E01022A89BD2600980B21 /* Films.json */; };
 		262E01062A89BD3F00980B21 /* Film.json in Resources */ = {isa = PBXBuildFile; fileRef = 262E01052A89BD3F00980B21 /* Film.json */; };
@@ -612,25 +622,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2620B2812A8C6B8500AC5B26 /* SpeciesResource.swift in Sources */,
+				2620B2802A8C6B8200AC5B26 /* SingleSpeciesResource.swift in Sources */,
+				2620B27C2A8C6B7200AC5B26 /* FilmResource.swift in Sources */,
+				2620B2842A8C6B8E00AC5B26 /* VehicleResource.swift in Sources */,
 				2682C5562A88692300B20A60 /* NetworkRequest.swift in Sources */,
 				2682C5442A88600000B20A60 /* Person.swift in Sources */,
+				2620B27D2A8C6B7400AC5B26 /* FilmsResource.swift in Sources */,
 				2682C5472A8867CE00B20A60 /* DetailView.swift in Sources */,
 				262E01552A89DCA300980B21 /* Vehicle.swift in Sources */,
 				2682C5392A88193100B20A60 /* URLSessionMock.swift in Sources */,
 				265644012A70C9A400E22059 /* YubnubUITests.swift in Sources */,
+				2620B2832A8C6B8C00AC5B26 /* StarshipsResource.swift in Sources */,
+				2620B2822A8C6B8900AC5B26 /* StarshipResource.swift in Sources */,
 				2682C5552A88692000B20A60 /* PersonResource.swift in Sources */,
 				2682C5452A8867BA00B20A60 /* ListView.swift in Sources */,
 				2682C5342A880F6600B20A60 /* URLProtocolStub.swift in Sources */,
 				2682C5532A88691B00B20A60 /* APIResource.swift in Sources */,
+				2620B27E2A8C6B7C00AC5B26 /* PlanetResource.swift in Sources */,
 				262E01542A89DCA000980B21 /* Starship.swift in Sources */,
 				2682C54F2A8868DF00B20A60 /* ListView+ViewModel.swift in Sources */,
 				262E01512A89DC9900980B21 /* Film.swift in Sources */,
 				262E01522A89DC9C00980B21 /* Planet.swift in Sources */,
 				2682C5542A88691E00B20A60 /* PeopleResource.swift in Sources */,
+				2620B2852A8C6B9100AC5B26 /* VehiclesResource.swift in Sources */,
 				2682C5422A8857B600B20A60 /* TestData.swift in Sources */,
 				2682C5522A88690B00B20A60 /* APIRequest.swift in Sources */,
 				265644032A70C9A400E22059 /* YubnubUITestsLaunchTests.swift in Sources */,
 				262E01532A89DC9E00980B21 /* Species.swift in Sources */,
+				2620B27F2A8C6B7F00AC5B26 /* PlanetsResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
