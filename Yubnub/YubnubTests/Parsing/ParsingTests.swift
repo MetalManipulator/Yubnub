@@ -40,15 +40,15 @@ final class ParsingTests: XCTestCase {
         XCTAssertEqual(film.director, "George Lucas")
         XCTAssertEqual(film.producer, "Gary Kurtz, Rick McCallum")
         XCTAssertEqual(film.releaseDate, "1977-05-25")
-        XCTAssertEqual(film.characters.count, 18)
-        XCTAssertEqual(film.planets.count, 3)
-        XCTAssertEqual(film.starships.count, 8)
-        XCTAssertEqual(film.vehicles.count, 4)
-        XCTAssertEqual(film.species.count, 5)
+        XCTAssertEqual(film.characters.count, 1)
+        XCTAssertEqual(film.planets.count, 1)
+        XCTAssertEqual(film.starships.count, 1)
+        XCTAssertEqual(film.vehicles.count, 1)
+        XCTAssertEqual(film.species.count, 1)
         XCTAssertEqual(film.url, "https://swapi.dev/api/films/1/")
 
         // Test computed vars
-        XCTAssertEqual(film.id, 4)
+        XCTAssertEqual(film.id, 1)
 
         let emptyFilm = TestData.Film.empty()
 
@@ -92,10 +92,10 @@ final class ParsingTests: XCTestCase {
         XCTAssertEqual(person.birthYear, "19BBY")
         XCTAssertEqual(person.gender, "male")
         XCTAssertEqual(person.homeworld, "https://swapi.dev/api/planets/1/")
-        XCTAssertEqual(person.films.count, 4)
+        XCTAssertEqual(person.films.count, 1)
         XCTAssertEqual(person.species.count, 0)
-        XCTAssertEqual(person.vehicles.count, 2)
-        XCTAssertEqual(person.starships.count, 2)
+        XCTAssertEqual(person.vehicles.count, 1)
+        XCTAssertEqual(person.starships.count, 1)
         XCTAssertEqual(person.url, "https://swapi.dev/api/people/1/")
 
         // Test computed vars
@@ -145,8 +145,8 @@ final class ParsingTests: XCTestCase {
         XCTAssertEqual(planet.terrain, "desert")
         XCTAssertEqual(planet.surfaceWater, "1")
         XCTAssertEqual(planet.population, "200000")
-        XCTAssertEqual(planet.residents.count, 10)
-        XCTAssertEqual(planet.films.count, 5)
+        XCTAssertEqual(planet.residents.count, 1)
+        XCTAssertEqual(planet.films.count, 1)
         XCTAssertEqual(planet.url, "https://swapi.dev/api/planets/1/")
 
         // Test computed vars
@@ -193,10 +193,10 @@ final class ParsingTests: XCTestCase {
         XCTAssertEqual(species.hairColors, "blonde, brown, black, red")
         XCTAssertEqual(species.eyeColors, "brown, blue, green, hazel, grey, amber")
         XCTAssertEqual(species.averageLifespan, "120")
-        XCTAssertEqual(species.homeworld, "https://swapi.dev/api/planets/9/")
+        XCTAssertEqual(species.homeworld, "https://swapi.dev/api/planets/1/")
         XCTAssertEqual(species.language, "Galactic Basic")
-        XCTAssertEqual(species.people.count, 4)
-        XCTAssertEqual(species.films.count, 6)
+        XCTAssertEqual(species.people.count, 1)
+        XCTAssertEqual(species.films.count, 1)
         XCTAssertEqual(species.url, "https://swapi.dev/api/species/1/")
 
         // Test computed vars
@@ -251,7 +251,7 @@ final class ParsingTests: XCTestCase {
         XCTAssertEqual(starship.MGLT, "60")
         XCTAssertEqual(starship.starshipClass, "corvette")
         XCTAssertEqual(starship.pilots.count, 0)
-        XCTAssertEqual(starship.films.count, 3)
+        XCTAssertEqual(starship.films.count, 1)
         XCTAssertEqual(starship.url, "https://swapi.dev/api/starships/2/")
 
         // Test computed vars
@@ -306,7 +306,7 @@ final class ParsingTests: XCTestCase {
         XCTAssertEqual(vehicle.consumables, "2 months")
         XCTAssertEqual(vehicle.vehicleClass, "wheeled")
         XCTAssertEqual(vehicle.pilots.count, 0)
-        XCTAssertEqual(vehicle.films.count, 2)
+        XCTAssertEqual(vehicle.films.count, 1)
         XCTAssertEqual(vehicle.url, "https://swapi.dev/api/vehicles/4/")
 
         // Test computed vars

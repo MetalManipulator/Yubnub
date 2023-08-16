@@ -21,9 +21,9 @@ class URLSessionMock {
     private var planetsURL = URL(string: "https://swapi.dev/api/planets/?page=1")
     private var singleSpeciesURL = URL(string: "https://swapi.dev/api/species/1/")
     private var speciesURL = URL(string: "https://swapi.dev/api/species/?page=1")
-    private var starshipURL = URL(string: "https://swapi.dev/api/starships/1/")
+    private var starshipURL = URL(string: "https://swapi.dev/api/starships/2/")
     private var starshipsURL = URL(string: "https://swapi.dev/api/starships/?page=1")
-    private var vehicleURL = URL(string: "https://swapi.dev/api/vehicles/1/")
+    private var vehicleURL = URL(string: "https://swapi.dev/api/vehicles/4/")
     private var vehiclesURL = URL(string: "https://swapi.dev/api/vehicles/?page=1")
 
     var session: URLSession
