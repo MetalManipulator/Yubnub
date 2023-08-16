@@ -40,6 +40,7 @@ struct ListView: View {
                 Text(person.name)
                     .foregroundColor(.primary)
                     .font(.title3)
+                    .multilineTextAlignment(.leading)
                 // Subtitle
                 HStack(spacing: 16.0) {
                     HStack(spacing: 4.0) {
@@ -55,6 +56,7 @@ struct ListView: View {
                             .foregroundColor(.primary)
                     }
                 }
+                .multilineTextAlignment(.leading)
             }
             Spacer()
             Image(systemName: "chevron.right")

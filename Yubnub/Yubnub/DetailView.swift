@@ -47,11 +47,14 @@ struct DetailView: View {
         return HStack {
             Text(label)
                 .fontWeight(.bold)
+                .multilineTextAlignment(.leading)
             Spacer()
             if let units = units {
                 Text(value + " " + units)
+                    .multilineTextAlignment(.trailing)
             } else {
                 Text(value)
+                    .multilineTextAlignment(.trailing)
             }
         }
     }
@@ -64,11 +67,13 @@ private struct FilmsRow: View {
         HStack(alignment: .top) {
             Text("Films")
                 .fontWeight(.bold)
+                .multilineTextAlignment(.leading)
             Spacer()
             LazyVStack(alignment: .trailing) {
                 let unwrappedFilms = films.compactMap { $0 }
                 ForEach(unwrappedFilms) { film in
                     Text(film.title)
+                        .multilineTextAlignment(.trailing)
                 }
             }
         }
@@ -82,11 +87,13 @@ private struct PeopleRow: View {
         HStack(alignment: .top) {
             Text("People")
                 .fontWeight(.bold)
+                .multilineTextAlignment(.leading)
             Spacer()
             LazyVStack(alignment: .trailing) {
                 let unwrappedPeople = people.compactMap { $0 }
                 ForEach(unwrappedPeople) { person in
                     Text(person.name)
+                        .multilineTextAlignment(.trailing)
                 }
             }
         }
@@ -101,11 +108,13 @@ private struct PlanetsRow: View {
         HStack(alignment: .top) {
             Text(label)
                 .fontWeight(.bold)
+                .multilineTextAlignment(.leading)
             Spacer()
             LazyVStack(alignment: .trailing) {
                 let unwrappedPlanets = planets.compactMap { $0 }
                 ForEach(unwrappedPlanets) { planet in
                     Text(planet.name)
+                        .multilineTextAlignment(.trailing)
                 }
             }
         }
@@ -119,11 +128,13 @@ private struct SpeciesRow: View {
         HStack(alignment: .top) {
             Text("Species")
                 .fontWeight(.bold)
+                .multilineTextAlignment(.leading)
             Spacer()
             LazyVStack(alignment: .trailing) {
                 let unwrappedSpecies = species.compactMap { $0 }
                 ForEach(unwrappedSpecies) { singleSpecies in
                     Text(singleSpecies.name)
+                        .multilineTextAlignment(.trailing)
                 }
             }
         }
@@ -137,11 +148,13 @@ private struct StarshipsRow: View {
         HStack(alignment: .top) {
             Text("Starships")
                 .fontWeight(.bold)
+                .multilineTextAlignment(.leading)
             Spacer()
             LazyVStack(alignment: .trailing) {
                 let unwrappedStarships = starships.compactMap { $0 }
                 ForEach(unwrappedStarships) { starship in
                     Text(starship.name)
+                        .multilineTextAlignment(.trailing)
                 }
             }
         }
@@ -155,11 +168,13 @@ private struct VehiclesRow: View {
         HStack(alignment: .top) {
             Text("Vehicles")
                 .fontWeight(.bold)
+                .multilineTextAlignment(.leading)
             Spacer()
             LazyVStack(alignment: .trailing) {
                 let unwrappedVehicles = vehicles.compactMap { $0 }
                 ForEach(unwrappedVehicles) { vehicle in
                     Text(vehicle.name)
+                        .multilineTextAlignment(.trailing)
                 }
             }
         }
