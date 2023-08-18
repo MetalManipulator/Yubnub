@@ -8,7 +8,7 @@
 import Foundation
 
 /// An individual `Vehicle` entry per the API schema
-struct Vehicle {
+struct Vehicle: SwapiRecord {
     /// The name of this vehicle. The common name, such as "Sand Crawler" or "Speeder bike".
     let name: String
     /// The model or official name of this vehicle. Such as "All-Terrain Attack Transport".
@@ -67,6 +67,7 @@ extension Vehicle: Decodable {
     }
 }
 
+extension Vehicle: Hashable { }
 extension Vehicle: Identifiable {
     /// id is determined by the url where it was found at (e.g. https://swapi.dev/api/vehicles/1/ would be "1")
     var id: Int {

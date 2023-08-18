@@ -8,7 +8,7 @@
 import Foundation
 
 /// An individual `Starship` entry per the API schema
-struct Starship {
+struct Starship: SwapiRecord {
     /// The name of this starship. The common name, such as "Death Star".
     let name: String
     /// The model or official name of this starship. Such as "T-65 X-wing" or "DS-1 Orbital Battle Station".
@@ -77,6 +77,7 @@ extension Starship: Decodable {
     }
 }
 
+extension Starship: Hashable { }
 extension Starship: Identifiable {
     /// id is determined by the url where it was found at (e.g. https://swapi.dev/api/starships/1/ would be "1")
     var id: Int {

@@ -113,6 +113,7 @@
 		2682C5562A88692300B20A60 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DF44C22A7366FC00593CC0 /* NetworkRequest.swift */; };
 		2682C5582A89701F00B20A60 /* Person.json in Resources */ = {isa = PBXBuildFile; fileRef = 26DF44B92A73556000593CC0 /* Person.json */; };
 		2682C5592A89706700B20A60 /* People.json in Resources */ = {isa = PBXBuildFile; fileRef = 268DF5C52A745EEF0077291B /* People.json */; };
+		2684F5642A8EB84200424970 /* SwapiRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684F5632A8EB84200424970 /* SwapiRecord.swift */; };
 		268DF5C22A74581C0077291B /* ListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268DF5C12A74581C0077291B /* ListView+ViewModel.swift */; };
 		268DF5C42A745B330077291B /* PersonResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268DF5C32A745B330077291B /* PersonResource.swift */; };
 		268DF5C92A756B800077291B /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268DF5C82A756B800077291B /* ParsingTests.swift */; };
@@ -183,6 +184,7 @@
 		2682C53A2A88547800B20A60 /* NotFound.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NotFound.json; sourceTree = "<group>"; };
 		2682C53F2A8857B600B20A60 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		2682C5572A886AD500B20A60 /* Yubnub.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Yubnub.xctestplan; sourceTree = "<group>"; };
+		2684F5632A8EB84200424970 /* SwapiRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapiRecord.swift; sourceTree = "<group>"; };
 		268DF5C12A74581C0077291B /* ListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListView+ViewModel.swift"; sourceTree = "<group>"; };
 		268DF5C32A745B330077291B /* PersonResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonResource.swift; sourceTree = "<group>"; };
 		268DF5C52A745EEF0077291B /* People.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = People.json; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				262E01292A89CCC000980B21 /* Starship.swift */,
 				262E012F2A89CFCF00980B21 /* Vehicle.swift */,
 				2682C53F2A8857B600B20A60 /* TestData.swift */,
+				2684F5632A8EB84200424970 /* SwapiRecord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				262E01492A89DB3B00980B21 /* SpeciesResource.swift in Sources */,
+				2684F5642A8EB84200424970 /* SwapiRecord.swift in Sources */,
 				262E01422A89DA7D00980B21 /* VehicleResource.swift in Sources */,
 				262E01302A89CFCF00980B21 /* Vehicle.swift in Sources */,
 				2682C5372A88193100B20A60 /* URLSessionMock.swift in Sources */,

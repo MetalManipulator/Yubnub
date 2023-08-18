@@ -8,7 +8,7 @@
 import Foundation
 
 /// An individual `Planet` entry per the API schema
-struct Planet {
+struct Planet: SwapiRecord {
     /// The name of this planet.
     let name: String
     /// The number of standard hours it takes for this planet to complete a single rotation on its axis.
@@ -60,6 +60,7 @@ extension Planet: Decodable {
     }
 }
 
+extension Planet: Hashable { }
 extension Planet: Identifiable {
     /// id is determined by the url where it was found at (e.g. https://swapi.dev/api/planets/1/ would be "1")
     var id: Int {

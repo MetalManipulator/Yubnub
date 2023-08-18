@@ -8,7 +8,7 @@
 import Foundation
 
 /// An individual `Species` entry per the API schema
-struct Species {
+struct Species: SwapiRecord {
     /// The name of this species.
     let name: String
     /// The classification of this species, such as "mammal" or "reptile".
@@ -67,6 +67,7 @@ extension Species: Decodable {
     }
 }
 
+extension Species: Hashable { }
 extension Species: Identifiable {
     /// id is determined by the url where it was found at (e.g. https://swapi.dev/api/species/1/ would be "1")
     var id: Int {

@@ -16,8 +16,7 @@ struct ListView: View {
                 LazyVStack(alignment: .leading) {
                     let people = viewModel.people.compactMap { $0 }
                     ForEach(people) { person in
-                        NavigationLink(destination: DetailView(viewModel: viewModel,
-                                                               person: person)) {
+                        NavigationLink(value: person) {
                             listRow(person: person)
                         }
                         Divider()
@@ -26,6 +25,24 @@ struct ListView: View {
                 bottomRow
             }
             .navigationTitle("SWAPI People")
+            .navigationDestination(for: Film.self) { film in
+                DetailView(viewModel: viewModel, record: film)
+            }
+            .navigationDestination(for: Person.self) { person in
+                DetailView(viewModel: viewModel, record: person)
+            }
+            .navigationDestination(for: Planet.self) { planet in
+                DetailView(viewModel: viewModel, record: planet)
+            }
+            .navigationDestination(for: Species.self) { species in
+                DetailView(viewModel: viewModel, record: species)
+            }
+            .navigationDestination(for: Starship.self) { starship in
+                DetailView(viewModel: viewModel, record: starship)
+            }
+            .navigationDestination(for: Vehicle.self) { vehicle in
+                DetailView(viewModel: viewModel, record: vehicle)
+            }
         }
         .onAppear {
             viewModel.fetchNextPeoplePage()
