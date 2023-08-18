@@ -77,6 +77,7 @@ extension Starship: Decodable {
     }
 }
 
+extension Starship: Hashable { }
 extension Starship: Identifiable {
     /// id is determined by the url where it was found at (e.g. https://swapi.dev/api/starships/1/ would be "1")
     var id: Int {

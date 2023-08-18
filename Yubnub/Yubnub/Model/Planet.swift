@@ -60,6 +60,7 @@ extension Planet: Decodable {
     }
 }
 
+extension Planet: Hashable { }
 extension Planet: Identifiable {
     /// id is determined by the url where it was found at (e.g. https://swapi.dev/api/planets/1/ would be "1")
     var id: Int {

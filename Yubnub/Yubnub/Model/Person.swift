@@ -67,6 +67,7 @@ extension Person: Decodable {
     }
 }
 
+extension Person: Hashable { }
 extension Person: Identifiable {
     /// id is determined by the url where it was found at (e.g. https://swapi.dev/api/people/1/ would be "1")
     var id: Int {

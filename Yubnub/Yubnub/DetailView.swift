@@ -58,9 +58,9 @@ struct DetailView: View {
                 VehiclesRow(vehicles: viewModel.getVehicles(for: film.vehicles))
                 SpeciesRow(species: viewModel.getSpecies(for: film.species))
             }
-            
+
             // Opening crawl
-            detailRow(label: "Opening crawl", value: film.openingCrawl) // TODO: figure out what to do with crawl
+            detailRow(label: "Opening crawl", value: film.openingCrawl)
         }
     }
 
@@ -234,8 +234,10 @@ private struct FilmsRow: View {
             LazyVStack(alignment: .trailing) {
                 let unwrappedFilms = films.compactMap { $0 }
                 ForEach(unwrappedFilms) { film in
-                    Text(film.title)
-                        .multilineTextAlignment(.trailing)
+                    NavigationLink(value: film) {
+                        Text(film.title)
+                            .multilineTextAlignment(.trailing)
+                    }
                 }
             }
         }
@@ -255,8 +257,10 @@ private struct PeopleRow: View {
             LazyVStack(alignment: .trailing) {
                 let unwrappedPeople = people.compactMap { $0 }
                 ForEach(unwrappedPeople) { person in
-                    Text(person.name)
-                        .multilineTextAlignment(.trailing)
+                    NavigationLink(value: person) {
+                        Text(person.name)
+                            .multilineTextAlignment(.trailing)
+                    }
                 }
             }
         }
@@ -276,8 +280,10 @@ private struct PlanetsRow: View {
             LazyVStack(alignment: .trailing) {
                 let unwrappedPlanets = planets.compactMap { $0 }
                 ForEach(unwrappedPlanets) { planet in
-                    Text(planet.name)
-                        .multilineTextAlignment(.trailing)
+                    NavigationLink(value: planet) {
+                        Text(planet.name)
+                            .multilineTextAlignment(.trailing)
+                    }
                 }
             }
         }
@@ -296,8 +302,10 @@ private struct SpeciesRow: View {
             LazyVStack(alignment: .trailing) {
                 let unwrappedSpecies = species.compactMap { $0 }
                 ForEach(unwrappedSpecies) { singleSpecies in
-                    Text(singleSpecies.name)
-                        .multilineTextAlignment(.trailing)
+                    NavigationLink(value: singleSpecies) {
+                        Text(singleSpecies.name)
+                            .multilineTextAlignment(.trailing)
+                    }
                 }
             }
         }
@@ -316,8 +324,10 @@ private struct StarshipsRow: View {
             LazyVStack(alignment: .trailing) {
                 let unwrappedStarships = starships.compactMap { $0 }
                 ForEach(unwrappedStarships) { starship in
-                    Text(starship.name)
-                        .multilineTextAlignment(.trailing)
+                    NavigationLink(value: starship) {
+                        Text(starship.name)
+                            .multilineTextAlignment(.trailing)
+                    }
                 }
             }
         }
@@ -336,8 +346,10 @@ private struct VehiclesRow: View {
             LazyVStack(alignment: .trailing) {
                 let unwrappedVehicles = vehicles.compactMap { $0 }
                 ForEach(unwrappedVehicles) { vehicle in
-                    Text(vehicle.name)
-                        .multilineTextAlignment(.trailing)
+                    NavigationLink(value: vehicle) {
+                        Text(vehicle.name)
+                            .multilineTextAlignment(.trailing)
+                    }
                 }
             }
         }
