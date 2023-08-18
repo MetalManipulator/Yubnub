@@ -8,7 +8,7 @@
 import Foundation
 
 /// An individual `Person` entry per the API schema
-struct Person {
+struct Person: SwapiRecord {
     /// The name of this person.
     let name: String
     /// The height of the person in centimeters.

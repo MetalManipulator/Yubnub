@@ -59,6 +59,12 @@ extension Film: Decodable {
     }
 }
 
+extension Film: SwapiRecord {
+    var name: String {
+        self.title
+    }
+}
+
 extension Film: Hashable { }
 extension Film: Identifiable {
     /// id is determined by the url where it was found at (e.g. https://swapi.dev/api/people/1/ would be "1")

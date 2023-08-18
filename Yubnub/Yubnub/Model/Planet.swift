@@ -8,7 +8,7 @@
 import Foundation
 
 /// An individual `Planet` entry per the API schema
-struct Planet {
+struct Planet: SwapiRecord {
     /// The name of this planet.
     let name: String
     /// The number of standard hours it takes for this planet to complete a single rotation on its axis.

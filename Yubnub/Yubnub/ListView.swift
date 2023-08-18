@@ -17,7 +17,7 @@ struct ListView: View {
                     let people = viewModel.people.compactMap { $0 }
                     ForEach(people) { person in
                         NavigationLink(destination: DetailView(viewModel: viewModel,
-                                                               person: person)) {
+                                                               record: person)) {
                             listRow(person: person)
                         }
                         Divider()

@@ -8,7 +8,7 @@
 import Foundation
 
 /// An individual `Species` entry per the API schema
-struct Species {
+struct Species: SwapiRecord {
     /// The name of this species.
     let name: String
     /// The classification of this species, such as "mammal" or "reptile".

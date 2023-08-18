@@ -8,7 +8,7 @@
 import Foundation
 
 /// An individual `Vehicle` entry per the API schema
-struct Vehicle {
+struct Vehicle: SwapiRecord {
     /// The name of this vehicle. The common name, such as "Sand Crawler" or "Speeder bike".
     let name: String
     /// The model or official name of this vehicle. Such as "All-Terrain Attack Transport".
