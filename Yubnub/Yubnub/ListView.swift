@@ -19,6 +19,7 @@ struct ListView: View {
                         NavigationLink(value: person) {
                             listRow(person: person)
                         }
+                        .accessibilityIdentifier("List Row")
                         Divider()
                     }
                 }

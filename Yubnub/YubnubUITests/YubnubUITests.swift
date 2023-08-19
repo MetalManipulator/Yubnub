@@ -8,12 +8,14 @@
 import XCTest
 
 final class YubnubUITests: XCTestCase {
+    let app = XCUIApplication()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
+        app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your
         // tests before they run. The setUp method is a good place to do this.
@@ -23,12 +25,24 @@ final class YubnubUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    func testListView() throws {
+        // Main view is presented on open
+        let navTitle = app.staticTexts["SWAPI People"]
+        XCTAssert(navTitle.exists)
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // List view is populated
+        let firstRow = app.buttons["Luke Skywalker, 172 cm, 77 kg"]
+        XCTAssert(firstRow.waitForExistence(timeout: 5.0))
+
+        // Navigate to Detail view
+        firstRow.tap()
+        let detailsTitle = app.staticTexts["Luke Skywalker"]
+        XCTAssert(detailsTitle.waitForExistence(timeout: 0.5))
+
+        // Navigate back to List view
+        let backButton = app.navigationBars.buttons.element(boundBy: 0)
+        backButton.tap()
+        XCTAssert(navTitle.waitForExistence(timeout: 0.5))
     }
 
     func testLaunchPerformance() throws {
