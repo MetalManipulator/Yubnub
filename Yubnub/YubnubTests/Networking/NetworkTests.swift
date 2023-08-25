@@ -78,183 +78,255 @@ final class NetworkTests: XCTestCase {
                        "https://swapi.dev/api/vehicles/?search=Sand%20Crawler")
     }
 
-    func testFilmRequest() throws {
+    func testSingleEntityRequestsPositive() throws {
         let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = FilmResource(id: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
+        
+        let filmResource = FilmResource(id: 1)
+        let personResource = PersonResource(id: 1)
+        let planetResource = PlanetResource(id: 1)
+        let speciesResource = SingleSpeciesResource(id: 1)
+        let starshipResource = StarshipResource(id: 2)
+        let vehicleResource = VehicleResource(id: 4)
+        
+        let filmRequest = APIRequest(resource: filmResource)
+        let personRequest = APIRequest(resource: personResource)
+        let planetRequest = APIRequest(resource: planetResource)
+        let speciesRequest = APIRequest(resource: speciesResource)
+        let starshipRequest = APIRequest(resource: starshipResource)
+        let vehicleRequest = APIRequest(resource: vehicleResource)
+        
+        let filmExpectation = expectation(description: "Film Data Loaded")
+        let personExpectation = expectation(description: "Person Data Loaded")
+        let planetExpectation = expectation(description: "Planet Data Loaded")
+        let speciesExpectation = expectation(description: "Species Data Loaded")
+        let starshipExpectation = expectation(description: "Starship Data Loaded")
+        let vehicleExpectation = expectation(description: "Vehicle Data Loaded")
+        
+        filmRequest.execute(using: successSession) { response in
             XCTAssertEqual(response?.title, "A New Hope")
+            filmExpectation.fulfill()
         }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
-    }
-
-    func testFilmsRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = FilmsResource(pageNumber: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
-            XCTAssertEqual(response?.count, 6)
-        }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
-    }
-
-    func testPersonRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = PersonResource(id: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
+        
+        personRequest.execute(using: successSession) { response in
             XCTAssertEqual(response?.name, "Luke Skywalker")
+            personExpectation.fulfill()
         }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
-    }
-
-    func testPeopleRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = PeopleResource(pageNumber: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
-            XCTAssertEqual(response?.count, 82)
-        }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
-    }
-
-    func testPlanetRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = PlanetResource(id: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
+        
+        planetRequest.execute(using: successSession) { response in
             XCTAssertEqual(response?.name, "Tatooine")
+            planetExpectation.fulfill()
         }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
-    }
-
-    func testPlanetsRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = PlanetsResource(pageNumber: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
-            XCTAssertEqual(response?.count, 60)
-        }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
-    }
-
-    func testSingleSpeciesRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = SingleSpeciesResource(id: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
+        
+        speciesRequest.execute(using: successSession) { response in
             XCTAssertEqual(response?.name, "Human")
+            speciesExpectation.fulfill()
         }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
-    }
-
-    func testSpeciesRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = SpeciesResource(pageNumber: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
-            XCTAssertEqual(response?.count, 37)
-        }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
-    }
-
-    func testStarshipRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = StarshipResource(id: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
+        
+        starshipRequest.execute(using: successSession) { response in
             XCTAssertEqual(response?.name, "CR90 corvette")
+            starshipExpectation.fulfill()
         }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
-    }
-
-    func testStarshipsRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = StarshipsResource(pageNumber: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
-            XCTAssertEqual(response?.count, 36)
-        }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
-    }
-
-    func testVehicleRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
-        let failureSession = URLSessionMock(type: .failNotFound).session
-
-        let resource = VehicleResource(id: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
+        
+        vehicleRequest.execute(using: successSession) { response in
             XCTAssertEqual(response?.name, "Sand Crawler")
+            vehicleExpectation.fulfill()
         }
-        request.execute(using: failureSession) { response in
-            XCTAssertNil(response)
-        }
+        
+        wait(for: [filmExpectation,
+                   personExpectation,
+                   planetExpectation,
+                   speciesExpectation,
+                   starshipExpectation,
+                   vehicleExpectation],
+             timeout: 1)
     }
 
-    func testVehiclesRequest() throws {
-        let successSession = URLSessionMock(type: .success).session
+    func testSingleEntityRequestsNegative() throws {
         let failureSession = URLSessionMock(type: .failNotFound).session
+        
+        let filmResource = FilmResource(id: 1)
+        let personResource = PersonResource(id: 1)
+        let planetResource = PlanetResource(id: 1)
+        let speciesResource = SingleSpeciesResource(id: 1)
+        let starshipResource = StarshipResource(id: 2)
+        let vehicleResource = VehicleResource(id: 4)
+        
+        let filmRequest = APIRequest(resource: filmResource)
+        let personRequest = APIRequest(resource: personResource)
+        let planetRequest = APIRequest(resource: planetResource)
+        let speciesRequest = APIRequest(resource: speciesResource)
+        let starshipRequest = APIRequest(resource: starshipResource)
+        let vehicleRequest = APIRequest(resource: vehicleResource)
+        
+        let filmExpectation = expectation(description: "Film Data Not Loaded")
+        let personExpectation = expectation(description: "Person Data Not Loaded")
+        let planetExpectation = expectation(description: "Planet Data Not Loaded")
+        let speciesExpectation = expectation(description: "Species Data Not Loaded")
+        let starshipExpectation = expectation(description: "Starship Data Not Loaded")
+        let vehicleExpectation = expectation(description: "Vehicle Data Not Loaded")
 
-        let resource = StarshipsResource(pageNumber: 1)
-        let request = APIRequest(resource: resource)
-
-        request.execute(using: successSession) { response in
-            XCTAssertEqual(response?.count, 39)
-        }
-        request.execute(using: failureSession) { response in
+        filmRequest.execute(using: failureSession) { response in
             XCTAssertNil(response)
+            filmExpectation.fulfill()
         }
+        
+        personRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            personExpectation.fulfill()
+        }
+        
+        planetRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            planetExpectation.fulfill()
+        }
+        
+        speciesRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            speciesExpectation.fulfill()
+        }
+        
+        starshipRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            starshipExpectation.fulfill()
+        }
+        
+        vehicleRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            vehicleExpectation.fulfill()
+        }
+        
+        wait(for: [filmExpectation,
+                   personExpectation,
+                   planetExpectation,
+                   speciesExpectation,
+                   starshipExpectation,
+                   vehicleExpectation],
+             timeout: 1)
+    }
+    
+    func testPageRequestsPositive() throws {
+        let successSession = URLSessionMock(type: .success).session
+        
+        let filmsResource = FilmsResource(pageNumber: 1)
+        let peopleResource = PeopleResource(pageNumber: 1)
+        let planetsResource = PlanetsResource(pageNumber: 1)
+        let speciesResource = SpeciesResource(pageNumber: 1)
+        let starshipsResource = StarshipsResource(pageNumber: 1)
+        let vehiclesResource = VehiclesResource(pageNumber: 1)
+        
+        let filmsRequest = APIRequest(resource: filmsResource)
+        let peopleRequest = APIRequest(resource: peopleResource)
+        let planetsRequest = APIRequest(resource: planetsResource)
+        let speciesRequest = APIRequest(resource: speciesResource)
+        let starshipsRequest = APIRequest(resource: starshipsResource)
+        let vehiclesRequest = APIRequest(resource: vehiclesResource)
+        
+        let filmsExpectation = expectation(description: "Films Data Loaded")
+        let peopleExpectation = expectation(description: "People Data Loaded")
+        let planetsExpectation = expectation(description: "Planets Data Loaded")
+        let speciesExpectation = expectation(description: "Species Data Loaded")
+        let starshipsExpectation = expectation(description: "Starships Data Loaded")
+        let vehiclesExpectation = expectation(description: "Vehicles Data Loaded")
+        
+        filmsRequest.execute(using: successSession) { response in
+            XCTAssertEqual(response?.count, 6)
+            filmsExpectation.fulfill()
+        }
+        
+        peopleRequest.execute(using: successSession) { response in
+            XCTAssertEqual(response?.count, 82)
+            peopleExpectation.fulfill()
+        }
+        
+        planetsRequest.execute(using: successSession) { response in
+            XCTAssertEqual(response?.count, 60)
+            planetsExpectation.fulfill()
+        }
+        
+        speciesRequest.execute(using: successSession) { response in
+            XCTAssertEqual(response?.count, 37)
+            speciesExpectation.fulfill()
+        }
+        
+        starshipsRequest.execute(using: successSession) { response in
+            XCTAssertEqual(response?.count, 36)
+            starshipsExpectation.fulfill()
+        }
+        
+        vehiclesRequest.execute(using: successSession) { response in
+            XCTAssertEqual(response?.count, 39)
+            vehiclesExpectation.fulfill()
+        }
+        
+        wait(for: [filmsExpectation,
+                   peopleExpectation,
+                   planetsExpectation,
+                   speciesExpectation,
+                   starshipsExpectation,
+                   vehiclesExpectation],
+             timeout: 1)
+    }
+
+    func testPageRequestsNegative() throws {
+        let failureSession = URLSessionMock(type: .failNotFound).session
+        
+        let filmsResource = FilmsResource(pageNumber: 1)
+        let peopleResource = PeopleResource(pageNumber: 1)
+        let planetsResource = PlanetsResource(pageNumber: 1)
+        let speciesResource = SpeciesResource(pageNumber: 1)
+        let starshipsResource = StarshipsResource(pageNumber: 1)
+        let vehiclesResource = VehiclesResource(pageNumber: 1)
+        
+        let filmsRequest = APIRequest(resource: filmsResource)
+        let peopleRequest = APIRequest(resource: peopleResource)
+        let planetsRequest = APIRequest(resource: planetsResource)
+        let speciesRequest = APIRequest(resource: speciesResource)
+        let starshipsRequest = APIRequest(resource: starshipsResource)
+        let vehiclesRequest = APIRequest(resource: vehiclesResource)
+        
+        let filmsExpectation = expectation(description: "Films Not Data Loaded")
+        let peopleExpectation = expectation(description: "People Not Data Loaded")
+        let planetsExpectation = expectation(description: "Planets Not Data Loaded")
+        let speciesExpectation = expectation(description: "Species Not Data Loaded")
+        let starshipsExpectation = expectation(description: "Starships Not Data Loaded")
+        let vehiclesExpectation = expectation(description: "Vehicles Not Data Loaded")
+        
+        filmsRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            filmsExpectation.fulfill()
+        }
+        
+        peopleRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            peopleExpectation.fulfill()
+        }
+        
+        planetsRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            planetsExpectation.fulfill()
+        }
+        
+        speciesRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            speciesExpectation.fulfill()
+        }
+        
+        starshipsRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            starshipsExpectation.fulfill()
+        }
+        
+        vehiclesRequest.execute(using: failureSession) { response in
+            XCTAssertNil(response)
+            vehiclesExpectation.fulfill()
+        }
+        
+        wait(for: [filmsExpectation,
+                   peopleExpectation,
+                   planetsExpectation,
+                   speciesExpectation,
+                   starshipsExpectation,
+                   vehiclesExpectation],
+             timeout: 1)
     }
 }
